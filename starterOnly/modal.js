@@ -19,6 +19,7 @@ const birthdate = document.querySelector("#birthdate");
 const quantity = document.querySelector("#quantity");
 const cityForm = document.querySelector(".cityForm");
 const conditions = document.querySelector("#checkbox1");
+
 const validation = document.querySelector("#validation");
 
 //create new elements in the DOM
@@ -27,6 +28,8 @@ const nomErrorMessage = document.createElement("p");
 const emailErrorMessage = document.createElement("p");
 const birthdateErrorMessage = document.createElement("p");
 const quantityErrorMessage = document.createElement("p");
+const cityFormErrorMessage = document.createElement("p");
+const conditionsErrorMessage = document.createElement("p");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -41,32 +44,49 @@ function closeModalFunc() {
   modalbg.style.display = "none";
 }
 
+
+
+
+
 //event listener on the items of the form
 
 //PRENOM
 prenom.addEventListener("keyup", validatePrenom);
 
 function validatePrenom() {
+
+  const prenomRegExp = /^[a-zA-ZÀ-ÿ-]+$/;
+
   if (prenom.value.length < 2) {
     prenom.style.border = "3px solid red";
     prenomErrorMessage.textContent =
       "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
     //add error class
     prenomErrorMessage.classList.add("errorClass");
+    prenomErrorMessage.setAttribute("data-error" , "true");
     prenom.parentElement.appendChild(prenomErrorMessage);
-  } else {
+  }  else if (!prenomRegExp.test(prenom.value)) {
+    prenom.style.border = "3px solid red";
+    prenomErrorMessage.textContent = "Le prénom ne peut pas contenir de chiffres, de caractères spéciaux ni d'espace.";
+    prenomErrorMessage.classList.add("errorClass");
+    prenom.parentElement.appendChild(prenomErrorMessage);
+  }
+  else {
     prenom.style.border = "3px solid green";
-    // errorMessage.textContent = "";
     prenomErrorMessage.classList.remove("errorClass");
-    // prenom.parentElement.removeChild(prenomErrorMessage);
     prenomErrorMessage.textContent = "";
   }
 }
+
+
 
 //NOM
 nom.addEventListener("keyup", validateNom);
 
 function validateNom() {
+
+  const nomRegExp = /^[a-zA-ZÀ-ÿ- ]+$/;
+
   if (nom.value.length < 2) {
     nom.style.border = "3px solid red";
     nomErrorMessage.textContent =
@@ -74,11 +94,16 @@ function validateNom() {
     //add error class
     nomErrorMessage.classList.add("errorClass");
     nom.parentElement.appendChild(nomErrorMessage);
-  } else {
+  } else if (!nomRegExp.test(nom.value)) {
+    nom.style.border = "3px solid red";
+    nomErrorMessage.textContent = "Le nom ne peut contenir ni des chiffres ni des caractères spéciaux";
+    nomErrorMessage.classList.add("errorClass");
+    nom.parentElement.appendChild(nomErrorMessage);
+  }
+  else {
     nom.style.border = "3px solid green";
-    // errorMessage.textContent = "";
     nomErrorMessage.classList.remove("errorClass");
-    nom.parentElement.removeChild(nomErrorMessage);
+    nomErrorMessage.textContent = "";
   }
 }
 
@@ -97,9 +122,8 @@ function validateEmail() {
     email.parentElement.appendChild(emailErrorMessage);
   } else {
     email.style.border = "3px solid green";
-    // errorMessage.textContent = "";
     emailErrorMessage.classList.remove("errorClass");
-    email.parentElement.removeChild(emailErrorMessage);
+    emailErrorMessage.textContent = "";
   }
 }
 
@@ -117,16 +141,14 @@ function validateBirthdate() {
     birthdate.style.border = "3px solid red";
     birthdateErrorMessage.textContent =
       "Veuillez entrer une date de naissance valide.";
-    //add error class
     birthdateErrorMessage.classList.add("errorClass");
     birthdate.parentElement.appendChild(birthdateErrorMessage);
   }
   //if e.target.value is undefined or <0, then error message
   else {
     birthdate.style.border = "3px solid green";
-    // errorMessage.textContent = "";
     birthdateErrorMessage.classList.remove("errorClass");
-    birthdate.parentElement.removeChild(birthdateErrorMessage);
+    birthdateErrorMessage.textContent = "";
   }
 }
 
@@ -138,17 +160,16 @@ function validateUpDown() {
   //if e.target.value is >=0, then success message
   if (quantity.value >= 0) {
     quantity.style.border = "3px solid green";
-    // errorMessage.textContent = "";
     quantityErrorMessage.classList.remove("errorClass");
     quantity.parentElement.removeChild(quantityErrorMessage);
-  }
+  } 
   //if e.target.value is undefined or <0, then error message
   else {
     quantity.style.border = "3px solid red";
     quantityErrorMessage.textContent = "Veuillez entrer une quantité positive.";
     //add error class
     quantityErrorMessage.classList.add("errorClass");
-    quantity.parentElement.appendChild(quantityErrorMessage);
+    quantityErrorMessage.textContent = "";
   }
 }
 
@@ -164,12 +185,18 @@ function validateQuantity() {
     //add error class
     quantityErrorMessage.classList.add("errorClass");
     quantity.parentElement.appendChild(quantityErrorMessage);
+  } else if (quantity.value > 99) {
+    quantity.style.border = "3px solid red";
+    quantityErrorMessage.textContent =
+      "Vous ne pouvez pas entrer de nombre supérieur à 99.";
+    quantityErrorMessage.classList.add("errorClass");
+    quantity.parentElement.appendChild(quantityErrorMessage);
   }
   //else if quantity value is empty
   else if (quantity.value === "") {
     quantity.style.border = "3px solid red";
     quantityErrorMessage.textContent =
-      "Veuillez entrer une quantité pour le champ de la quantité.";
+      "Veuillez entrer un chiffre.";
     //add error class
     quantityErrorMessage.classList.add("errorClass");
     quantity.parentElement.appendChild(quantityErrorMessage);
@@ -177,9 +204,42 @@ function validateQuantity() {
     quantity.style.border = "3px solid green";
     // errorMessage.textContent = "";
     quantityErrorMessage.classList.remove("errorClass");
-    quantity.parentElement.removeChild(quantityErrorMessage);
+    quantityErrorMessage.textContent = "";
   }
 }
+
+//LOCATION
+cityForm.addEventListener("change", validateLocation);
+
+
+  function validateLocation() {
+    if (document.querySelector("input[name='location']:checked") === null) {
+        cityFormErrorMessage.textContent = "Veuillez sélectionner une ville.";
+        cityFormErrorMessage.classList.add("errorClass");
+        cityForm.appendChild(cityFormErrorMessage);
+      }
+      else {
+
+        cityFormErrorMessage.classList.remove("errorClass");
+        cityFormErrorMessage.textContent = "";
+      }
+  }
+
+// CONDITIONS GENERALES
+conditions.addEventListener("change", validateConditions);
+
+function validateConditions() {
+  if (document.querySelector("input[id='checkbox1']:checked") === null) {
+    conditionsErrorMessage.textContent = "Veuillez accepter les conditions générales.";
+    conditionsErrorMessage.classList.add("errorClass");
+    conditions.parentElement.appendChild(conditionsErrorMessage);
+  } else {
+    conditionsErrorMessage.classList.remove("errorClass");
+    conditionsErrorMessage.textContent = "";
+  }
+}
+
+
 
 //SUBMIT BUTTON
 validation.addEventListener("click", (e) => {
@@ -206,8 +266,8 @@ function validateForm() {
     validateEmail();
     validateBirthdate();
     validateQuantity();
-    // validateLocation();
-    // validateCheckbox();
+    validateLocation();
+    validateConditions();
   }
 
  
