@@ -11,6 +11,8 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const closeModal = document.querySelector(".close");
 
+const modalConfirm = document.querySelector(".bg2");
+
 // const for the elements inside the form
 const prenom = document.querySelector("#first");
 const nom = document.querySelector("#last");
@@ -44,6 +46,10 @@ function closeModalFunc() {
   modalbg.style.display = "none";
 }
 
+//launch modal confirmation
+function launchModalConfirmation() {
+  modalConfirm.style.display = "block";
+}
 
 
 
@@ -63,7 +69,6 @@ function validatePrenom() {
       "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
     //add error class
     prenomErrorMessage.classList.add("errorClass");
-    prenomErrorMessage.setAttribute("data-error" , "true");
     prenom.parentElement.appendChild(prenomErrorMessage);
   }  else if (!prenomRegExp.test(prenom.value)) {
     prenom.style.border = "3px solid red";
@@ -258,6 +263,8 @@ function validateForm() {
     ) {
       counter++;
       console.log(counter);
+      closeModalFunc();
+      launchModalConfirmation();
     }
     else {
     console.log(prenom.style.border, nom.style.border, email.style.border, birthdate.style.border, quantity.style.border);
