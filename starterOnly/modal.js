@@ -191,17 +191,24 @@ function validateForm() {
 
   let counter = 0;
   if (
-    prenom.style.border === "3px solid green" &&
-    nom.style.border === "3px solid green" &&
-    email.style.border === "3px solid green" &&
-    birthdate.style.border === "3px solid green" &&
-    quantity.style.border === "3px solid green" &&
+    prenom.style.border, nom.style.border, email.style.border, birthdate.style.border, quantity.style.border === "3px solid green" &&
     document.querySelector("input[name='location']:checked") !== null &&
     document.querySelector("input[id='checkbox1']:checked") !== null
-  ) {
-    counter++;
-    console.log(counter);
+    ) {
+      counter++;
+      console.log(counter);
+    }
+    else {
+    console.log(prenom.style.border, nom.style.border, email.style.border, birthdate.style.border, quantity.style.border);
+    validatePrenom();
+    validateNom();
+    validateEmail();
+    validateBirthdate();
+    validateQuantity();
+    // validateLocation();
+    // validateCheckbox();
   }
 
  
 }
+
