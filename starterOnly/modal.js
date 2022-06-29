@@ -58,7 +58,8 @@ function validatePrenom() {
     prenom.style.border = "3px solid green";
     // errorMessage.textContent = "";
     prenomErrorMessage.classList.remove("errorClass");
-    prenom.parentElement.removeChild(prenomErrorMessage);
+    // prenom.parentElement.removeChild(prenomErrorMessage);
+    prenomErrorMessage.textContent = "";
   }
 }
 
