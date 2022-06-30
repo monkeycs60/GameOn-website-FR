@@ -33,6 +33,9 @@ img {
 .topnav {
   overflow: hidden;
   margin: 3.5%;
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center; */
 }
 
   
@@ -48,10 +51,10 @@ img {
 .topnav a {
   float: left;
   display: block;
-  color: #000000;
-  text-align: center;
+  color: #ff0000;
+  /* text-align: center;*/
   padding: 12px 12px;
-  margin: 5px;
+  margin: 5px; 
   text-decoration: none;
   font-size: 20px;
   font-family: Roboto, sans-serif;
@@ -76,12 +79,9 @@ img {
 @media screen and (max-width: 768px) {
   .topnav a {display: none;}
   .topnav a.icon {
-    float: right;
+    /* float: right; */
     display: block;
   }
-}
-
-@media screen and (max-width: 768px) {
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
     position: absolute;
