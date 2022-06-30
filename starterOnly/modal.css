@@ -562,7 +562,35 @@ footer {
   overflow: auto;
   background-color: rgba(26, 39, 156, 0.4);
 }
+.bg2 .content {
+  height: 100%;
+}
+
 .modal-confirmation {
-  color: pink;
-  font-size: 10rem;
+  /* padding: 15px 3%; */
+  /* margin: 15px auto; */
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+}
+
+.bg2 .thanks-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+}
+
+.close-btn {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -85%);
+  padding: 1.5vh 6vw;
+  cursor: pointer;
 }

@@ -12,6 +12,7 @@ const formData = document.querySelectorAll(".formData");
 const closeModal = document.querySelector(".close");
 
 const modalConfirm = document.querySelector(".bg2");
+const closeConfirm = document.querySelector(".close-confirm");
 
 // const for the elements inside the form
 const prenom = document.querySelector("#first");
@@ -23,6 +24,8 @@ const cityForm = document.querySelector(".cityForm");
 const conditions = document.querySelector("#checkbox1");
 
 const validation = document.querySelector("#validation");
+
+const closeBtn = document.querySelector(".close-btn");
 
 //create new elements in the DOM
 const prenomErrorMessage = document.createElement("p");
@@ -49,6 +52,15 @@ function closeModalFunc() {
 //launch modal confirmation
 function launchModalConfirmation() {
   modalConfirm.style.display = "block";
+}
+
+//close modal confirmation
+closeBtn.addEventListener("click", closeModalConfirmation);
+closeConfirm.addEventListener("click", closeModalConfirmation);
+
+function closeModalConfirmation() {
+  modalConfirm.style.display = "none";
+  modalbg.style.display = "none";
 }
 
 
@@ -166,7 +178,7 @@ function validateUpDown() {
   if (quantity.value >= 0) {
     quantity.style.border = "3px solid green";
     quantityErrorMessage.classList.remove("errorClass");
-    quantity.parentElement.removeChild(quantityErrorMessage);
+    quantityErrorMessage.textContent = "";
   } 
   //if e.target.value is undefined or <0, then error message
   else {
@@ -174,7 +186,7 @@ function validateUpDown() {
     quantityErrorMessage.textContent = "Veuillez entrer une quantité positive.";
     //add error class
     quantityErrorMessage.classList.add("errorClass");
-    quantityErrorMessage.textContent = "";
+    
   }
 }
 
@@ -277,6 +289,5 @@ function validateForm() {
     validateConditions();
   }
 
- 
 }
 
