@@ -34,6 +34,11 @@ img {
   overflow: hidden;
   margin: 3.5%;
 }
+
+  
+
+
+
 .header-logo {
     float: left;
 }
@@ -168,6 +173,13 @@ main {
   overflow: auto;
   background-color: rgba(26, 39, 156, 0.4);
 }
+@media all and (max-width: 768px) {
+  .bground {
+    top: 12%;
+  }
+}
+  
+
 
 .content {
   margin: 5% auto;
