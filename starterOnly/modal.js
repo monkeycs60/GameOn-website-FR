@@ -306,7 +306,8 @@ function validateForm() {
   }
   
   else {
-    document.getElementById("form").reset();
+    document.getElementById("reserve").submit();
+    document.getElementById("reserve").reset();
     //remove all border color
     prenom.style.border = "";
     nom.style.border = "";
@@ -314,7 +315,7 @@ function validateForm() {
     birthdate.style.border = "";
     quantity.style.border = "";
     closeModalFunc();
-    launchModalConfirmation()
+    // launchModalConfirmation()
   }
 
 }
