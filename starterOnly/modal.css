@@ -45,6 +45,11 @@ img {
   align-items: center; 
 }
 
+.header-logo img {
+  width: 120%;
+  height: auto;
+}
+
 
 .topnav a {
   float: left;
