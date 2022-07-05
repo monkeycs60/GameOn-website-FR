@@ -15,7 +15,8 @@ body {
   flex-direction: column;
   background-image: url("background.png");
   font-family: var(--font-default);
-  font-size: 18px;
+  /* font-size: 18px; */
+  font-size: calc(1.5vmin + 5px);
   max-width: 95%;
   max-height: 100%;
   margin: auto;
@@ -124,7 +125,6 @@ main {
   box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
   margin-bottom: 10px;
   margin: auto;
-  background: green;
   z-index: 2;
 }
 .hero-content {
@@ -162,9 +162,11 @@ main {
   white-space: nowrap;
 }
 .hero-text {
-  width: 120%;
+  width: 100%;
+  font-size: 0.9em;
   font-weight: normal;
   padding: 0;
+  
 }
 .btn-signup {
   outline: none;
@@ -176,15 +178,14 @@ main {
  
 }
 .hero-img {
-  width: 60%;
-}
-.hero-img img {
+  background-image: url("./bg_img.jpg");
+  width: 60vw;
+  height: 77vh;
+  background-size: cover;
+  background-position: center;
   
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  padding: 0;
 }
+
 .copyrights {
   color: #fe142f;
   padding: 0;
