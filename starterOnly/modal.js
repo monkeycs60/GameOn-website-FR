@@ -36,6 +36,7 @@ const quantityErrorMessage = document.createElement("p");
 const cityFormErrorMessage = document.createElement("p");
 const conditionsErrorMessage = document.createElement("p");
 
+
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 closeModal.addEventListener("click", closeModalFunc);
@@ -78,20 +79,23 @@ function validatePrenom() {
   if (prenom.value.length < 2) {
     prenom.style.border = "3px solid red";
     prenomErrorMessage.textContent =
-      "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
+      "Veuillez entrer 2 caractères ou plus pour le prénom.";
     //add error class
     prenomErrorMessage.classList.add("errorClass");
     prenom.parentElement.appendChild(prenomErrorMessage);
+    return false;
   }  else if (!prenomRegExp.test(prenom.value)) {
     prenom.style.border = "3px solid red";
     prenomErrorMessage.textContent = "Le prénom ne peut pas contenir de chiffres, de caractères spéciaux ni d'espace.";
     prenomErrorMessage.classList.add("errorClass");
     prenom.parentElement.appendChild(prenomErrorMessage);
+    return false;
   }
   else {
     prenom.style.border = "3px solid green";
     prenomErrorMessage.classList.remove("errorClass");
     prenomErrorMessage.textContent = "";
+    return true;
   }
 }
 
@@ -107,20 +111,23 @@ function validateNom() {
   if (nom.value.length < 2) {
     nom.style.border = "3px solid red";
     nomErrorMessage.textContent =
-      "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
+      "Veuillez entrer 2 caractères ou plus pour le nom.";
     //add error class
     nomErrorMessage.classList.add("errorClass");
     nom.parentElement.appendChild(nomErrorMessage);
+    return false;
   } else if (!nomRegExp.test(nom.value)) {
     nom.style.border = "3px solid red";
     nomErrorMessage.textContent = "Le nom ne peut contenir ni des chiffres ni des caractères spéciaux";
     nomErrorMessage.classList.add("errorClass");
     nom.parentElement.appendChild(nomErrorMessage);
+    return false;
   }
   else {
     nom.style.border = "3px solid green";
     nomErrorMessage.classList.remove("errorClass");
     nomErrorMessage.textContent = "";
+    return true;
   }
 }
 
@@ -137,10 +144,12 @@ function validateEmail() {
     //add error class
     emailErrorMessage.classList.add("errorClass");
     email.parentElement.appendChild(emailErrorMessage);
+    return false;
   } else {
     email.style.border = "3px solid green";
     emailErrorMessage.classList.remove("errorClass");
     emailErrorMessage.textContent = "";
+    return true;
   }
 }
 
@@ -160,12 +169,14 @@ function validateBirthdate() {
       "Veuillez entrer une date de naissance valide.";
     birthdateErrorMessage.classList.add("errorClass");
     birthdate.parentElement.appendChild(birthdateErrorMessage);
+    return false;
   }
   //if e.target.value is undefined or <0, then error message
   else {
     birthdate.style.border = "3px solid green";
     birthdateErrorMessage.classList.remove("errorClass");
     birthdateErrorMessage.textContent = "";
+    return true;
   }
 }
 
@@ -175,18 +186,20 @@ quantity.addEventListener("change", validateUpDown);
 
 function validateUpDown() {
   //if e.target.value is >=0, then success message
-  if (quantity.value >= 0) {
+  if (quantity.value >= 0 && quantity.value <= 99) {
     quantity.style.border = "3px solid green";
     quantityErrorMessage.classList.remove("errorClass");
     quantityErrorMessage.textContent = "";
+    // return true;
   } 
   //if e.target.value is undefined or <0, then error message
   else {
     quantity.style.border = "3px solid red";
-    quantityErrorMessage.textContent = "Veuillez entrer une quantité positive.";
+    quantityErrorMessage.textContent = "Veuillez entrer un nombre entre 1 et 99.";
     //add error class
     quantityErrorMessage.classList.add("errorClass");
-    
+    quantity.parentElement.appendChild(quantityErrorMessage); 
+    // return false;
   }
 }
 
@@ -198,16 +211,18 @@ function validateQuantity() {
   if (isNaN(quantity.value)) {
     quantity.style.border = "3px solid red";
     quantityErrorMessage.textContent =
-      "Veuillez entrer un nombre pour le champ de la quantité.";
+      "Veuillez entrer un nombre.";
     //add error class
     quantityErrorMessage.classList.add("errorClass");
     quantity.parentElement.appendChild(quantityErrorMessage);
+    return false;
   } else if (quantity.value > 99) {
     quantity.style.border = "3px solid red";
     quantityErrorMessage.textContent =
       "Vous ne pouvez pas entrer de nombre supérieur à 99.";
     quantityErrorMessage.classList.add("errorClass");
     quantity.parentElement.appendChild(quantityErrorMessage);
+    return false;
   }
   //else if quantity value is empty
   else if (quantity.value === "") {
@@ -217,11 +232,13 @@ function validateQuantity() {
     //add error class
     quantityErrorMessage.classList.add("errorClass");
     quantity.parentElement.appendChild(quantityErrorMessage);
+    return false;
   } else {
     quantity.style.border = "3px solid green";
     // errorMessage.textContent = "";
     quantityErrorMessage.classList.remove("errorClass");
     quantityErrorMessage.textContent = "";
+    return true;
   }
 }
 
@@ -265,21 +282,19 @@ validation.addEventListener("click", (e) => {
 });
 
 function validateForm() {
-  //if all borders are green, then submit the form
 
-  let counter = 0;
-  if (
-    prenom.style.border, nom.style.border, email.style.border, birthdate.style.border, quantity.style.border === "3px solid green" &&
-    document.querySelector("input[name='location']:checked") !== null &&
-    document.querySelector("input[id='checkbox1']:checked") !== null
-    ) {
-      counter++;
-      console.log(counter);
-      closeModalFunc();
-      launchModalConfirmation();
-    }
-    else {
-    console.log(prenom.style.border, nom.style.border, email.style.border, birthdate.style.border, quantity.style.border);
+  if  (
+  validatePrenom() === false ||
+  validateNom() === false ||
+  validateEmail() === false ||
+  validateBirthdate() === false ||
+  validateQuantity() === false ||
+  validateLocation() === false ||
+  validateConditions() === false ||
+  document.querySelector("input[name='location']:checked") === null ||
+  document.querySelector("input[id='checkbox1']:checked") === null
+  ) {
+    alert("Veuillez remplir tous les champs du formulaire.");
     validatePrenom();
     validateNom();
     validateEmail();
@@ -287,7 +302,19 @@ function validateForm() {
     validateQuantity();
     validateLocation();
     validateConditions();
+    
+  }
+  
+  else {
+    document.getElementById("form").reset();
+    //remove all border color
+    prenom.style.border = "";
+    nom.style.border = "";
+    email.style.border = "";
+    birthdate.style.border = "";
+    quantity.style.border = "";
+    closeModalFunc();
+    launchModalConfirmation()
   }
 
 }
-
