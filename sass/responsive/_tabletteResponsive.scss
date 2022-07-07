@@ -1,33 +1,30 @@
 @media screen and (max-width: 992px) {
 
+
     .main-navbar {
         display: flex;
-        
         width: 60%;
         justify-content: space-between;
         align-items: center;
     }
-    .menuList {
-        // flex-direction: column;
-        // position: absolute;
-        // top: 15%;
-        // left: 70%;
-        // transform: translate(-50%, -50%);
-        // z-index: 4;
-        // margin-bottom: 3vh;
 
-       a {
-        display: none;
-       }
+    .menuList {
+
+
+        a {
+            display: none;
+        }
     }
 
     #hamburgerI {
-        
         font-size: 2em;
         display: block;
-        // flex-direction: row-reverse;
-       }
-    
- 
+    }
+
+    .hero-img {
+        // width: 40vw;
+        // height: 66vh;
+    }
+
 
 }
