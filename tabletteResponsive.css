@@ -1,0 +1,30 @@
+/* @media screen and (max-width: 992px) {
+    .topnav {
+
+        align-items: center;
+        position: relative;
+        justify-content: space-between;
+        }
+    .topnav a {
+        display: none;  
+    }
+    
+    
+   .topnav i {
+
+    color: #ff0000;
+    display: block;
+    font-size: 200%;
+    position: absolute;
+    left: 90%;
+    }
+
+    .show {
+        display: flex;
+        flex-direction: column;
+        color: green;
+        background: yellow;
+        position: absolute;
+    }
+  
+} */

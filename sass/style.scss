@@ -1,0 +1,398 @@
+:root {
+  --font-default: "DM Sans", Arial, Helvetica, sans-serif;
+  --font-slab: var(--font-default);
+  --modal-duration: 0.8s;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+//landing page
+
+body {
+  font-family: DM Sans, Arial, Helvetica, sans-serif;
+  font-size: calc(1.5vmin + 5px);
+  margin: auto;
+  margin-top: 4vh;
+  max-width: 90%;
+}
+
+
+//navbar
+.topnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  //logo
+  .header-logo {
+    img {
+      width: 15vw;
+    }
+  }
+
+  //items du menu
+  .menuList {
+    width: 42vw;
+    display: flex;
+    justify-content: space-between;
+
+    //classe active appliquée à Détails de l'événement
+    .active {
+      color: #ffffff;
+      background: #FE142F;
+      text-decoration: underline;
+      text-underline-offset: 0.3em;
+    }
+
+    //chacun des éléments du menu
+    a {
+      text-decoration: none;
+      color: rgba(35, 35, 35, 1);
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 0.90em;
+      font-weight: bold;
+
+      //effet au passage de la souris
+      &:hover {
+        @extend .active;
+      }
+    }
+  }
+
+  //menu hamburger
+  i {
+    display: none;
+    color: red;
+  }
+}
+
+
+//hero banner
+main {
+  margin: 6vh auto 4vh auto;
+  position: relative;
+}
+
+//container général
+.hero-section {
+  display: flex;
+  background: #232323;
+  color: rgba(255, 255, 255, 1);
+}
+
+//partie gauche du container : texte & bouton
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4vh 3vw 6vh 4vw;
+  width: 40%;
+
+  //main title
+  h1 {
+    font-size: 6.5em;
+    white-space: nowrap;
+    z-index: 2;
+  }
+
+  //subtitle
+  p {
+    font-size: 1.5em;
+  }
+
+  //bouton inscription
+  button {
+    width: 50%;
+    padding: 1.5vh 1.5vw;
+    font-size: 1.5em;
+    text-transform: capitalize;
+    border-radius: 8px;
+    background: #FE142F;
+    border: none;
+    color: rgba(255, 255, 255, 1);
+
+    &:hover {
+      background: #279E7A;
+      cursor: pointer;
+    }
+  }
+}
+
+//partie droite du container : image
+.hero-img {
+  background-image: url("../images/bg_img.jpg");
+  width: 60vw;
+  height: 77vh;
+  background-size: cover;
+  background-position: center;
+}
+
+//footer
+footer {
+  color: #FE142F;
+  font-weight: 600;
+  font-size: 0.8em;
+  transform: translateX(-3vw);
+}
+
+
+
+//MODALES
+
+
+//première fenêtre modale : inscription
+
+//calque transparent en fond
+.bground,
+.bg2 {
+  display: none;
+  position: fixed;
+  z-index: 3;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(26, 39, 156, 0.4);
+}
+
+//design modale
+.content {
+  margin: 7% auto;
+  width: 520px;
+  // max-width: 520px;
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
+  background: #232323;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+  padding-top: 10px;
+}
+
+.modal-body {
+  padding: 15px 8%;
+  margin: 15px auto;
+}
+
+label {
+
+  font-size: 14px;
+  font-weight: normal;
+  display: inline-block;
+  margin: 11px 0 11px 0;
+}
+
+input {
+  padding: 8px;
+  border: 0.8px solid #ccc;
+  outline: none;
+}
+
+//le nom des questions
+.text-control {
+  margin: 0;
+  padding: 30px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 20px;
+  height: 48px;
+}
+
+//à quel tournoi souhaitez-vous participer ?
+.text-label {
+  font-weight: normal;
+  font-size: 14px;
+  padding: 8px;
+}
+
+.checkbox-label,
+.checkbox2-label {
+  position: relative;
+  margin-left: 36px;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.checkbox-label .checkbox-icon,
+.checkbox2-label .checkbox-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #279e7a;
+  border-radius: 50%;
+  text-indent: 29px;
+  white-space: nowrap;
+  position: absolute;
+  left: -30px;
+  top: -1px;
+  transition: 0.3s;
+}
+
+.checkbox-label .checkbox-icon::after,
+.checkbox2-label .checkbox-icon::after {
+  content: "";
+  width: 13px;
+  height: 13px;
+  background-color: #279e7a;
+  border-radius: 50%;
+  text-indent: 29px;
+  white-space: nowrap;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.3s;
+  opacity: 0;
+}
+
+.checkbox-input {
+  display: none;
+}
+
+.checkbox-input:checked+.checkbox-label .checkbox-icon::after,
+.checkbox-input:checked+.checkbox2-label .checkbox-icon::after {
+  opacity: 1;
+}
+
+.checkbox-input:checked+.checkbox2-label .checkbox-icon {
+  background: #279e7a;
+}
+
+.checkbox2-label .checkbox-icon {
+  border-radius: 4px;
+  border: 0;
+  background: #c4c4c4;
+}
+
+.checkbox2-label .checkbox-icon::after {
+  width: 7px;
+  height: 4px;
+  border-radius: 2px;
+  background: transparent;
+  border: 2px solid transparent;
+  border-bottom-color: #fff;
+  border-left-color: #fff;
+  transform: rotate(-55deg);
+  left: 21%;
+  top: 19%;
+}
+
+//croix pour fermer la modale
+.close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 32px;
+  height: 32px;
+  opacity: 1;
+  cursor: pointer;
+  transform: scale(0.7);
+}
+
+.close:before,
+.close:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 33px;
+  width: 3px;
+  background-color: #fff;
+}
+
+.close:before {
+  transform: rotate(45deg);
+}
+
+.close:after {
+  transform: rotate(-45deg);
+}
+
+//bouton submit
+.btn-submit {
+  background: #FE142F;
+  border: none;
+  color: white;
+  margin: auto;
+  display: flex;
+  font-size: 18px;
+  padding: 1vh 3vw;
+  text-align: center;
+  margin-top: 2vh;
+  border-radius: 8px;
+
+  &:hover {
+    background: #279E7A;
+    cursor: pointer;
+  }
+}
+
+
+
+//SECONDE MODALE : CONFIRMATION
+
+#confirm-modal {
+  width: 520px;
+  height: 70vh;
+  border-radius: 10px;
+  position: relative;
+}
+
+.thanks-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8em;
+  width: 100%;
+  height: 70vh;
+}
+
+.close-btn {
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #FE142F;
+  border: none;
+  color: white;
+  font-size: 18px;
+  padding: 1vh 3vw;
+  text-align: center;
+  border-radius: 8px;
+  &:hover {
+    background: #279E7A;
+    cursor: pointer;
+  }
+}
+
+
+//keyframes animation modales
+@keyframes modalopen {
+  from {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+//classe erreur implémentée en JS
+.errorClass {
+  font-size: 0.5em;
+  color: #e54858;
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 7px;
+  transition: 0.3s;
+ 
+}

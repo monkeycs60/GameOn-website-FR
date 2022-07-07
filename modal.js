@@ -5,6 +5,7 @@ function editNav() {
     : (x.className = "topnav");
 }
 
+
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
@@ -171,6 +172,14 @@ function validateBirthdate() {
     birthdate.parentElement.appendChild(birthdateErrorMessage);
     return false;
   }
+  else if (date > new Date()) {
+    birthdate.style.border = "3px solid red";
+    birthdateErrorMessage.textContent =
+      "Veuillez entrer une date passée.";
+    birthdateErrorMessage.classList.add("errorClass");
+    birthdate.parentElement.appendChild(birthdateErrorMessage);
+    return false;
+  }
   //if e.target.value is undefined or <0, then error message
   else {
     birthdate.style.border = "3px solid green";
@@ -276,10 +285,10 @@ function validateConditions() {
 
 
 //SUBMIT BUTTON
-validation.addEventListener("click", (e) => {
-  e.preventDefault();
-  validateForm();
-});
+// validation.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   validateForm();
+// });
 
 function validateForm() {
 
@@ -306,16 +315,45 @@ function validateForm() {
   }
   
   else {
-    document.getElementById("reserve").submit();
-    document.getElementById("reserve").reset();
+    
     //remove all border color
     prenom.style.border = "";
     nom.style.border = "";
     email.style.border = "";
     birthdate.style.border = "";
     quantity.style.border = "";
-    closeModalFunc();
-    // launchModalConfirmation()
+    document.getElementById("reserve").submit();
+    document.getElementById("reserve").reset();
+    
   }
 
 }
+
+//impeed to refresh page on submit the form
+document.getElementById("reserve"). 
+addEventListener("submit", function(e) {
+  e.preventDefault();
+  validateForm();
+  closeModalFunc();
+    launchModalConfirmation()
+  
+});
+
+
+//if the form is submitted, the modal appears
+
+
+// function validate() {
+//   launchModalConfirmation();
+//   console.log("envoyé!");
+//   e.preventDefault();
+  
+// }
+  
+
+
+document.getElementById("reserve").addEventListener("submit", (e) => {
+  e.preventDefault();
+  console.log("submit");
+  launchModalConfirmation();
+});
