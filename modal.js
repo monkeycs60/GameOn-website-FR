@@ -1,9 +1,24 @@
+
+
+
+//hamburger menu
+const hamburger = document.getElementById("hamburgerI");
+//event listener when you click on it, it displays the menu list
+hamburger.addEventListener("click", editNav);
+//create a function editNav that toggle responsive class on the nav
 function editNav() {
-  let x = document.getElementById("myTopnav");
-  x.className === "topnav"
-    ? (x.className += " responsive")
-    : (x.className = "topnav");
+  console.log("clicked");
+  let menuList = document.querySelectorAll(".menuList a");
+  //change the display of each menulist by flex
+
+  //create a toggle function for the menu : if it is display:none, then display:flex, else display:none
+  for (let i = 0; i < menuList.length; i++) {
+    menuList[i].style.display = menuList[i].style.display === "none" ? "flex" : "none";
+  }
 }
+
+ 
+  
 
 
 // DOM Elements

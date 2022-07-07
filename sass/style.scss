@@ -1,3 +1,5 @@
+
+
 :root {
   --font-default: "DM Sans", Arial, Helvetica, sans-serif;
   --font-slab: var(--font-default);
@@ -64,13 +66,13 @@ body {
     }
   }
 
-  //menu hamburger
-  i {
-    display: none;
-    color: red;
-  }
 }
 
+//menu hamburger
+#hamburgerI {
+  display: none;
+  color: red;
+}
 
 //hero banner
 main {
@@ -338,7 +340,7 @@ input {
 //SECONDE MODALE : CONFIRMATION
 
 #confirm-modal {
-  width: 520px;
+  max-width: 520px;
   height: 70vh;
   border-radius: 10px;
   position: relative;
@@ -396,3 +398,13 @@ input {
   transition: 0.3s;
  
 }
+
+//responsive
+
+.responsive {
+  display: flex;
+}
+
+
+//import tabletteresponsieve from './tabletteresponsieve.scss';
+@import "./responsive/tabletteResponsive.scss";

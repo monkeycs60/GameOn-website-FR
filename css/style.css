@@ -45,7 +45,7 @@ body {
   font-size: 0.9em;
   font-weight: bold;
 }
-.topnav i {
+#hamburgerI {
   display: none;
   color: red;
 }
@@ -286,7 +286,7 @@ input {
 }
 
 #confirm-modal {
-  width: 520px;
+  max-width: 520px;
   height: 70vh;
   border-radius: 10px;
   position: relative;
@@ -346,4 +346,26 @@ input {
   margin-top: 5px;
   margin-bottom: 7px;
   transition: 0.3s;
+}
+
+.responsive {
+  display: flex;
+}
+
+@media screen and (max-width: 992px) {
+  .main-navbar {
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menuList a {
+    display: none;
+  }
+
+  #hamburgerI {
+    font-size: 2em;
+    display: block;
+  }
 }/*# sourceMappingURL=style.css.map */
