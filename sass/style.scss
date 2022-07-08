@@ -32,7 +32,8 @@ body {
   //logo
   .header-logo {
     img {
-      width: 15vw;
+      max-width: 30vw;
+      height: auto;
     }
   }
 
@@ -85,6 +86,7 @@ main {
   display: flex;
   background: #232323;
   color: rgba(255, 255, 255, 1);
+  border-radius: 8px;
 }
 
 //partie gauche du container : texte & bouton
@@ -132,6 +134,7 @@ main {
   height: 77vh;
   background-size: cover;
   background-position: center;
+  border-radius: 0 8px 8px 0;
 }
 
 //footer
@@ -408,3 +411,4 @@ input {
 //import tabletteresponsieve from './tabletteresponsieve.scss';
 @import "./responsive/tabletteResponsive.scss";
 @import "./responsive/mobileResponsive.scss";
+@import "./responsive/lowerResResponsive.scss";

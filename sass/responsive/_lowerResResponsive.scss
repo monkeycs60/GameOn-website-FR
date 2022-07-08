@@ -1,0 +1,30 @@
+@media screen and (max-width: 540px) {
+    
+    main {
+        margin: 0 auto;
+    }
+    
+    .hero-section {
+
+    }
+    .hero-content {
+        font-size: 90%;
+
+        p {
+            font-size: 120%;
+        }
+
+        button  {
+            transform: translateY(63vh);
+        }
+    } 
+.hero-img {
+    height: 330px;
+    background-size: cover;
+   
+}
+
+footer {
+transform: translate(0px, 8vh) 
+}
+}

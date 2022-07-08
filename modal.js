@@ -3,6 +3,7 @@
 
 //hamburger menu
 const hamburger = document.getElementById("hamburgerI");
+const resp = document.getElementById("responsive");
 //event listener when you click on it, it displays the menu list
 hamburger.addEventListener("click", editNav);
 //create a function editNav that toggle responsive class on the nav
@@ -14,8 +15,10 @@ function editNav() {
   //create a toggle function for the menu : if it is display:none, then display:flex, else display:none
   for (let i = 0; i < menuList.length; i++) {
     menuList[i].style.display = menuList[i].style.display === "none" ? "flex" : "none";
+   
   }
 }
+
 
  
   
