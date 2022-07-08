@@ -183,6 +183,7 @@ footer {
   margin: 15px auto;
 }
 
+//mise en forme des cellules du formulaire
 label {
   font-size: 14px;
   font-weight: normal;
@@ -213,6 +214,7 @@ input {
   padding: 8px;
 }
 
+//radiobutton et checkbox du formulaire
 .checkbox-label,
 .checkbox2-label {
   position: relative;
@@ -400,10 +402,9 @@ input {
 
 //responsive
 
-.responsive {
-  display: flex;
-}
+
 
 
 //import tabletteresponsieve from './tabletteresponsieve.scss';
 @import "./responsive/tabletteResponsive.scss";
+@import "./responsive/mobileResponsive.scss";

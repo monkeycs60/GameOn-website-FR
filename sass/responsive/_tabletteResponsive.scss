@@ -21,10 +21,28 @@
         display: block;
     }
 
-    .hero-img {
-        // width: 40vw;
-        // height: 66vh;
+    .hero-content {
+        width: 40%;
+        h1 {
+            font-size: 4em;
+        }
+        p {
+font-size: 1.2em;
+        }
+        button {
+            width: 80%;
+        }
     }
 
+    .hero-img {
+        max-width: auto;
+        max-height: 700px;
+        background-size: cover;
+      
+    }
+
+    footer {
+        margin-top: 7vh;
+    }
 
 }
