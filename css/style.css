@@ -382,7 +382,6 @@ input {
   }
 
   .hero-img {
-    max-width: auto;
     max-height: 700px;
     background-size: cover;
   }

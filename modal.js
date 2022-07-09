@@ -328,14 +328,13 @@ function validateForm() {
     sessionStorage.setItem("conditions", conditions.value);
 
    //if launchmodalconfirmation is true, then the form is sent
-    if (launchModalConfirmation === true) {
+    
       console.log("formulaire envoyé");
       document.getElementById("reserve").submit();
       document.getElementById("reserve").reset();
-    }
+    
 
-      document.getElementById("reserve").submit();
-      // document.getElementById("reserve").reset();
+    
     }};
 
 
