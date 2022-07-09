@@ -315,9 +315,15 @@ function validateForm() {
 
     closeModalFunc();
     launchModalConfirmation();
+
+    //if you close the modalconfirmation, submit form and reset it
+    modalConfirmation.addEventListener("click", function(e) {
+      if (e.target.classList.contains("close")) {
+        closeModalConfirmation();
     document.getElementById("reserve").submit();
     document.getElementById("reserve").reset();
-  }
+  } });
+}
 }
 
 //ECOUTE DE L ENVOI DU FORMULAIRE
