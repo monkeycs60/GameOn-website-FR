@@ -9,7 +9,7 @@
 
     }
 
-   
+
 
     .main-navbar {
         flex-direction: column-reverse;
@@ -22,20 +22,21 @@
         flex-direction: column;
         width: 100%;
         transform: translateX(-7vw);
-
-
-
+   
         //center the text in the span
+//for loop responsive1 to responsive4
+ @for $i from 1 to 5 {
+    #responsive#{$i} {
+        width: 50vw;
+        transform: translateX(-20%);
+        font-size: 1.5em;
+        text-align: center;
+        justify-content: center;
+        font-weight: normal;
+    } 
+ }
 
-        #responsive {
-            width: 50vw;
-            transform: translateX(-20%);
-            font-size: 1.5em;
-            text-align: center;
-            // display: flex;
-            justify-content: center;
-            font-weight: normal;
-        }
+
     }
 
     #hamburgerI {
@@ -44,7 +45,7 @@
         font-size: 2.8em;
     }
 
-    
+
 
     .hero-section {
         flex-direction: column;
@@ -52,6 +53,7 @@
         color: rgba(0, 0, 0, 1);
         width: 100%;
         background: white;
+        margin-top: 0;
     }
 
     .hero-content {
@@ -74,7 +76,7 @@
         button {
             transform: translateY(90vh);
             width: 50%;
-            
+
         }
     }
 
@@ -97,17 +99,19 @@
         height: auto;
         width: 100vw;
         border-radius: 8px 8px 0px 0px;
-        
+
     }
 
     #validation {
         padding: 1vh 10vw;
     }
+
     #confirm-modal {
         border-radius: 8px 8px 0px 0px;
         max-width: 768px;
         height: 85vh;
     }
+
     .thanks-text {
         font-size: 3em;
     }

@@ -416,7 +416,31 @@ input {
     width: 100%;
     transform: translateX(-7vw);
   }
-  .menuList #responsive {
+  .menuList #responsive1 {
+    width: 50vw;
+    transform: translateX(-20%);
+    font-size: 1.5em;
+    text-align: center;
+    justify-content: center;
+    font-weight: normal;
+  }
+  .menuList #responsive2 {
+    width: 50vw;
+    transform: translateX(-20%);
+    font-size: 1.5em;
+    text-align: center;
+    justify-content: center;
+    font-weight: normal;
+  }
+  .menuList #responsive3 {
+    width: 50vw;
+    transform: translateX(-20%);
+    font-size: 1.5em;
+    text-align: center;
+    justify-content: center;
+    font-weight: normal;
+  }
+  .menuList #responsive4 {
     width: 50vw;
     transform: translateX(-20%);
     font-size: 1.5em;
@@ -437,6 +461,7 @@ input {
     color: rgb(0, 0, 0);
     width: 100%;
     background: white;
+    margin-top: 0;
   }
 
   .hero-content {
