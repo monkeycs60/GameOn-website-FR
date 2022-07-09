@@ -15,7 +15,9 @@
         }
 
         button  {
-            transform: translateY(63vh);
+            // transform: translateY(55vh);
+            position: absolute;
+            bottom: 80vh;
         }
     } 
 .hero-img {
