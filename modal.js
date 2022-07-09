@@ -279,6 +279,9 @@ function validateConditions() {
   }
 }
 
+
+
+
 // FONCTION POUR VALIDER LE FORMULAIRE
 
 function validateForm() {
@@ -315,31 +318,38 @@ function validateForm() {
 
     closeModalFunc();
     launchModalConfirmation();
+    //prevent the default action of the form
+    sessionStorage.setItem("prenom", prenom.value);
+    sessionStorage.setItem("nom", nom.value);
+    sessionStorage.setItem("email", email.value);
+    sessionStorage.setItem("birthdate", birthdate.value);
+    sessionStorage.setItem("quantity", quantity.value);
+    sessionStorage.setItem("location", location.value);
+    sessionStorage.setItem("conditions", conditions.value);
 
-    //if you close the modalconfirmation, submit form and reset it
-    modalConfirmation.addEventListener("click", function(e) {
-      if (e.target.classList.contains("close")) {
-        closeModalConfirmation();
-    document.getElementById("reserve").submit();
-    document.getElementById("reserve").reset();
-  } });
-}
-}
+   //if launchmodalconfirmation is true, then the form is sent
+    if (launchModalConfirmation === true) {
+      console.log("formulaire envoyé");
+      document.getElementById("reserve").submit();
+      document.getElementById("reserve").reset();
+    }
 
-//ECOUTE DE L ENVOI DU FORMULAIRE
+      document.getElementById("reserve").submit();
+      // document.getElementById("reserve").reset();
+    }};
 
-// document.getElementById("reserve").
-// addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   validateForm();
-//   closeModalFunc();
-//     launchModalConfirmation()
 
-// });
-
-//addevent listener on "reserve" when you click on the button
+    document.getElementById("reserve").addEventListener("submit", function(e) {
+      e.preventDefault();
+    console.log("cool bro");
+      })
+  
+   
 
 validation.addEventListener("click", (e) => {
   e.preventDefault();
   validateForm();
 });
+
+
+//addevent listener on close and "fermer" to send the form
