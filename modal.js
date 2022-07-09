@@ -1,6 +1,3 @@
-
-
-
 //hamburger menu
 const hamburger = document.getElementById("hamburgerI");
 const resp = document.getElementById("responsive");
@@ -14,15 +11,10 @@ function editNav() {
 
   //create a toggle function for the menu : if it is display:none, then display:flex, else display:none
   for (let i = 0; i < menuList.length; i++) {
-    menuList[i].style.display = menuList[i].style.display === "none" ? "flex" : "none";
-   
+    menuList[i].style.display =
+      menuList[i].style.display === "none" ? "flex" : "none";
   }
 }
-
-
- 
-  
-
 
 // DOM Elements
 const modalbg = document.querySelector(".bground");
@@ -55,7 +47,6 @@ const quantityErrorMessage = document.createElement("p");
 const cityFormErrorMessage = document.createElement("p");
 const conditionsErrorMessage = document.createElement("p");
 
-
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 closeModal.addEventListener("click", closeModalFunc);
@@ -83,16 +74,12 @@ function closeModalConfirmation() {
   modalbg.style.display = "none";
 }
 
-
-
-
 //event listener on the items of the form
 
 //PRENOM
 prenom.addEventListener("keyup", validatePrenom);
 
 function validatePrenom() {
-
   const prenomRegExp = /^[a-zA-ZÀ-ÿ-]+$/;
 
   if (prenom.value.length < 2) {
@@ -103,14 +90,14 @@ function validatePrenom() {
     prenomErrorMessage.classList.add("errorClass");
     prenom.parentElement.appendChild(prenomErrorMessage);
     return false;
-  }  else if (!prenomRegExp.test(prenom.value)) {
+  } else if (!prenomRegExp.test(prenom.value)) {
     prenom.style.border = "3px solid red";
-    prenomErrorMessage.textContent = "Le prénom ne peut pas contenir de chiffres, de caractères spéciaux ni d'espace.";
+    prenomErrorMessage.textContent =
+      "Le prénom ne peut pas contenir de chiffres, de caractères spéciaux ni d'espace.";
     prenomErrorMessage.classList.add("errorClass");
     prenom.parentElement.appendChild(prenomErrorMessage);
     return false;
-  }
-  else {
+  } else {
     prenom.style.border = "3px solid green";
     prenomErrorMessage.classList.remove("errorClass");
     prenomErrorMessage.textContent = "";
@@ -118,13 +105,10 @@ function validatePrenom() {
   }
 }
 
-
-
 //NOM
 nom.addEventListener("keyup", validateNom);
 
 function validateNom() {
-
   const nomRegExp = /^[a-zA-ZÀ-ÿ- ]+$/;
 
   if (nom.value.length < 2) {
@@ -137,12 +121,12 @@ function validateNom() {
     return false;
   } else if (!nomRegExp.test(nom.value)) {
     nom.style.border = "3px solid red";
-    nomErrorMessage.textContent = "Le nom ne peut contenir ni des chiffres ni des caractères spéciaux";
+    nomErrorMessage.textContent =
+      "Le nom ne peut contenir ni des chiffres ni des caractères spéciaux";
     nomErrorMessage.classList.add("errorClass");
     nom.parentElement.appendChild(nomErrorMessage);
     return false;
-  }
-  else {
+  } else {
     nom.style.border = "3px solid green";
     nomErrorMessage.classList.remove("errorClass");
     nomErrorMessage.textContent = "";
@@ -189,11 +173,9 @@ function validateBirthdate() {
     birthdateErrorMessage.classList.add("errorClass");
     birthdate.parentElement.appendChild(birthdateErrorMessage);
     return false;
-  }
-  else if (date > new Date()) {
+  } else if (date > new Date()) {
     birthdate.style.border = "3px solid red";
-    birthdateErrorMessage.textContent =
-      "Veuillez entrer une date passée.";
+    birthdateErrorMessage.textContent = "Veuillez entrer une date passée.";
     birthdateErrorMessage.classList.add("errorClass");
     birthdate.parentElement.appendChild(birthdateErrorMessage);
     return false;
@@ -218,14 +200,15 @@ function validateUpDown() {
     quantityErrorMessage.classList.remove("errorClass");
     quantityErrorMessage.textContent = "";
     // return true;
-  } 
+  }
   //if e.target.value is undefined or <0, then error message
   else {
     quantity.style.border = "3px solid red";
-    quantityErrorMessage.textContent = "Veuillez entrer un nombre entre 1 et 99.";
+    quantityErrorMessage.textContent =
+      "Veuillez entrer un nombre entre 1 et 99.";
     //add error class
     quantityErrorMessage.classList.add("errorClass");
-    quantity.parentElement.appendChild(quantityErrorMessage); 
+    quantity.parentElement.appendChild(quantityErrorMessage);
     // return false;
   }
 }
@@ -237,8 +220,7 @@ function validateQuantity() {
   //QUANTITY value has to be a number
   if (isNaN(quantity.value)) {
     quantity.style.border = "3px solid red";
-    quantityErrorMessage.textContent =
-      "Veuillez entrer un nombre.";
+    quantityErrorMessage.textContent = "Veuillez entrer un nombre.";
     //add error class
     quantityErrorMessage.classList.add("errorClass");
     quantity.parentElement.appendChild(quantityErrorMessage);
@@ -254,8 +236,7 @@ function validateQuantity() {
   //else if quantity value is empty
   else if (quantity.value === "") {
     quantity.style.border = "3px solid red";
-    quantityErrorMessage.textContent =
-      "Veuillez entrer un chiffre.";
+    quantityErrorMessage.textContent = "Veuillez entrer un chiffre.";
     //add error class
     quantityErrorMessage.classList.add("errorClass");
     quantity.parentElement.appendChild(quantityErrorMessage);
@@ -272,26 +253,24 @@ function validateQuantity() {
 //LOCATION
 cityForm.addEventListener("change", validateLocation);
 
-
-  function validateLocation() {
-    if (document.querySelector("input[name='location']:checked") === null) {
-        cityFormErrorMessage.textContent = "Veuillez sélectionner une ville.";
-        cityFormErrorMessage.classList.add("errorClass");
-        cityForm.appendChild(cityFormErrorMessage);
-      }
-      else {
-
-        cityFormErrorMessage.classList.remove("errorClass");
-        cityFormErrorMessage.textContent = "";
-      }
+function validateLocation() {
+  if (document.querySelector("input[name='location']:checked") === null) {
+    cityFormErrorMessage.textContent = "Veuillez sélectionner une ville.";
+    cityFormErrorMessage.classList.add("errorClass");
+    cityForm.appendChild(cityFormErrorMessage);
+  } else {
+    cityFormErrorMessage.classList.remove("errorClass");
+    cityFormErrorMessage.textContent = "";
   }
+}
 
 // CONDITIONS GENERALES
 conditions.addEventListener("change", validateConditions);
 
 function validateConditions() {
   if (document.querySelector("input[id='checkbox1']:checked") === null) {
-    conditionsErrorMessage.textContent = "Veuillez accepter les conditions générales.";
+    conditionsErrorMessage.textContent =
+      "Veuillez accepter les conditions générales.";
     conditionsErrorMessage.classList.add("errorClass");
     conditions.parentElement.appendChild(conditionsErrorMessage);
   } else {
@@ -300,26 +279,19 @@ function validateConditions() {
   }
 }
 
-
-
-//SUBMIT BUTTON
-// validation.addEventListener("click", (e) => {
-//   e.preventDefault();
-//   validateForm();
-// });
+// FONCTION POUR VALIDER LE FORMULAIRE
 
 function validateForm() {
-
-  if  (
-  validatePrenom() === false ||
-  validateNom() === false ||
-  validateEmail() === false ||
-  validateBirthdate() === false ||
-  validateQuantity() === false ||
-  validateLocation() === false ||
-  validateConditions() === false ||
-  document.querySelector("input[name='location']:checked") === null ||
-  document.querySelector("input[id='checkbox1']:checked") === null
+  if (
+    validatePrenom() === false ||
+    validateNom() === false ||
+    validateEmail() === false ||
+    validateBirthdate() === false ||
+    validateQuantity() === false ||
+    validateLocation() === false ||
+    validateConditions() === false ||
+    document.querySelector("input[name='location']:checked") === null ||
+    document.querySelector("input[id='checkbox1']:checked") === null
   ) {
     alert("Veuillez remplir tous les champs du formulaire.");
     validatePrenom();
@@ -329,49 +301,39 @@ function validateForm() {
     validateQuantity();
     validateLocation();
     validateConditions();
+
     
-  }
-  
-  else {
-    
+
+  } else {
     //remove all border color
     prenom.style.border = "";
     nom.style.border = "";
     email.style.border = "";
     birthdate.style.border = "";
     quantity.style.border = "";
+   
+
+    closeModalFunc();
+    launchModalConfirmation();
     document.getElementById("reserve").submit();
     document.getElementById("reserve").reset();
-    
   }
-
 }
 
-//impeed to refresh page on submit the form
-document.getElementById("reserve"). 
-addEventListener("submit", function(e) {
+//ECOUTE DE L ENVOI DU FORMULAIRE
+
+// document.getElementById("reserve").
+// addEventListener("submit", (e) => {
+//   e.preventDefault();
+//   validateForm();
+//   closeModalFunc();
+//     launchModalConfirmation()
+
+// });
+
+//addevent listener on "reserve" when you click on the button
+
+validation.addEventListener("click", (e) => {
   e.preventDefault();
   validateForm();
-  closeModalFunc();
-    launchModalConfirmation()
-  
-});
-
-
-//if the form is submitted, the modal appears
-
-
-// function validate() {
-//   launchModalConfirmation();
-//   console.log("envoyé!");
-//   e.preventDefault();
-  
-// }
-  
-
-
-document.getElementById("reserve").addEventListener("submit", (e) => {
-  e.preventDefault();
-  console.log("submit");
-  launchModalConfirmation();
 });
