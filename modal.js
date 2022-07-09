@@ -25,6 +25,7 @@ const closeModal = document.querySelector(".close");
 const modalConfirm = document.querySelector(".bg2");
 const closeConfirm = document.querySelector(".close-confirm");
 
+const fullFormulaire = document.querySelector("#reserve");
 // const for the elements inside the form
 const prenom = document.querySelector("#first");
 const nom = document.querySelector("#last");
@@ -72,7 +73,21 @@ closeConfirm.addEventListener("click", closeModalConfirmation);
 function closeModalConfirmation() {
   modalConfirm.style.display = "none";
   modalbg.style.display = "none";
-}
+  //create a function to submit the form
+  console.log(fullFormulaire);
+      // fullFormulaire.preventDefault();
+      //prevent default action of the form
+      fullFormulaire.addEventListener("submit", function (e) {
+        e.preventDefault();
+         });
+
+         fullFormulaire.submit();
+         fullFormulaire.reset();
+         console.log("submit");
+      
+  }
+   
+
 
 //event listener on the items of the form
 
@@ -326,24 +341,16 @@ function validateForm() {
     sessionStorage.setItem("quantity", quantity.value);
     sessionStorage.setItem("location", location.value);
     sessionStorage.setItem("conditions", conditions.value);
-
-   //if launchmodalconfirmation is true, then the form is sent
     
       console.log("formulaire envoyé");
-      document.getElementById("reserve").submit();
-      document.getElementById("reserve").reset();
+      // document.getElementById("reserve").submit();
+      // document.getElementById("reserve").reset();
     
-
     
     }};
 
 
-    document.getElementById("reserve").addEventListener("submit", function(e) {
-      e.preventDefault();
-    console.log("cool bro");
-      })
-  
-   
+     
 
 validation.addEventListener("click", (e) => {
   e.preventDefault();
@@ -351,4 +358,4 @@ validation.addEventListener("click", (e) => {
 });
 
 
-//addevent listener on close and "fermer" to send the form
+//addevent listener on closeconfirm and closeconfirmbtn, when you click on, it
