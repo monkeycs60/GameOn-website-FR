@@ -29,3 +29,10 @@ footer {
 transform: translate(0px, 8vh) 
 }
 }
+
+//change la taille du titre pour les mobiles les plus petits
+@media screen and (max-width: 360px) {
+    .hero-content h1 {
+        font-size: 3.7em;
+    }
+}

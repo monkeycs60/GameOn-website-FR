@@ -73,21 +73,7 @@ closeConfirm.addEventListener("click", closeModalConfirmation);
 function closeModalConfirmation() {
   modalConfirm.style.display = "none";
   modalbg.style.display = "none";
-  //create a function to submit the form
-  console.log(fullFormulaire);
-      // fullFormulaire.preventDefault();
-      //prevent default action of the form
-      fullFormulaire.addEventListener("submit", function (e) {
-        e.preventDefault();
-         });
-
-         fullFormulaire.submit();
-         fullFormulaire.reset();
-         console.log("submit");
-      
-  }
-   
-
+}
 
 //event listener on the items of the form
 
@@ -294,9 +280,6 @@ function validateConditions() {
   }
 }
 
-
-
-
 // FONCTION POUR VALIDER LE FORMULAIRE
 
 function validateForm() {
@@ -319,9 +302,6 @@ function validateForm() {
     validateQuantity();
     validateLocation();
     validateConditions();
-
-    
-
   } else {
     //remove all border color
     prenom.style.border = "";
@@ -329,7 +309,6 @@ function validateForm() {
     email.style.border = "";
     birthdate.style.border = "";
     quantity.style.border = "";
-   
 
     closeModalFunc();
     launchModalConfirmation();
@@ -340,22 +319,27 @@ function validateForm() {
     sessionStorage.setItem("birthdate", birthdate.value);
     sessionStorage.setItem("quantity", quantity.value);
     sessionStorage.setItem("location", location.value);
+    //get the text input of the label of the radio button checked
+
+
     sessionStorage.setItem("conditions", conditions.value);
-    
-      console.log("formulaire envoyé");
-      // document.getElementById("reserve").submit();
-      // document.getElementById("reserve").reset();
-    
-    
-    }};
 
-
-     
+    console.log("formulaire envoyé");
+    fullFormulaire.submit();
+    fullFormulaire.reset();
+    //create a function to submit the form
+ 
+    // document.getElementById("reserve").submit();
+    // document.getElementById("reserve").reset();
+  }
+}
 
 validation.addEventListener("click", (e) => {
   e.preventDefault();
   validateForm();
 });
 
+function sendForm() {
+  console.log("formulaire envoyé dfgfdfgdfgfdf");
+}
 
-//addevent listener on closeconfirm and closeconfirmbtn, when you click on, it
