@@ -1,20 +1,30 @@
 //hamburger menu
 const hamburger = document.getElementById("hamburgerI");
 const resp = document.getElementById("responsive");
+const spanList = document.getElementsByClassName("flexPush");
 //event listener when you click on it, it displays the menu list
 hamburger.addEventListener("click", editNav);
 //create a function editNav that toggle responsive class on the nav
 function editNav() {
   console.log("clicked");
   let menuList = document.querySelectorAll(".menuList a");
-  //change the display of each menulist by flex
-
+ 
   // create a toggle function for the menu : if it is display:none, then display:flex, else display:none
   for (let i = 0; i < menuList.length; i++) {
+   
+    let style = getComputedStyle(menuList[i]);
+    console.log(style.display);
+
     menuList[i].style.display =
-      menuList[i].style.display === "none" ? "flex" : "none";
+      style.display === "none" ? "flex" : "none";
 }
-  }
+ 
+    };
+  
+
+
+
+
 
  
 
@@ -65,6 +75,7 @@ function closeModalFunc() {
 
 //launch modal confirmation
 function launchModalConfirmation() {
+  console.log("test pour submit");
   modalConfirm.style.display = "block";
 }
 
@@ -313,27 +324,19 @@ function validateForm() {
     quantity.style.border = "";
 
     closeModalFunc();
-    launchModalConfirmation();
-    //prevent the default action of the form
+    
     sessionStorage.setItem("prenom", prenom.value);
     sessionStorage.setItem("nom", nom.value);
     sessionStorage.setItem("email", email.value);
     sessionStorage.setItem("birthdate", birthdate.value);
     sessionStorage.setItem("quantity", quantity.value);
     sessionStorage.setItem("location", location.value);
-    //get the text input of the label of the radio button checked
-
-
     sessionStorage.setItem("conditions", conditions.value);
+    
 
-    console.log("formulaire envoyé");
     fullFormulaire.submit();
-    fullFormulaire.reset();
-    //create a function to submit the form
- 
-    // document.getElementById("reserve").submit();
-    // document.getElementById("reserve").reset();
-  }
+
+}
 }
 
 validation.addEventListener("click", (e) => {
@@ -341,7 +344,56 @@ validation.addEventListener("click", (e) => {
   validateForm();
 });
 
-function sendForm() {
-  console.log("formulaire envoyé dfgfdfgdfgfdf");
+
+window.onload = function() {
+  if (sessionStorage.length > 7) {
+    launchModalConfirmation();
+    fullFormulaire.reset();
+    //on next reload, empty the sessionStorage
+    sessionStorage.clear();
+  }
+ 
+  console.log(sessionStorage.length);
 }
 
+
+
+
+  //addeventlistener to the fullformulaire submit event; then launch the launchModalConfirmation function
+  // fullFormulaire.addEventListener("submit", callback, false, formSubmit);
+   
+  
+  
+  
+    
+    // window.onload = function() {
+    //   // alert("onload");
+    //   var form = document.querySelector("form");
+    //   console.log(form);
+    //   form.onsubmit = submitted.bind(form);
+    // }
+    
+    // function submitted() {
+    //   alert("submitted fonction marche")
+    //   launchModalConfirmation();
+    //   fullFormulaire.reset();
+    // }
+  
+  
+  //   var ele = fullFormulaire;
+  // if(ele.addEventListener){
+  //     ele.addEventListener("submit", submitted, false);  //Modern browsers
+  // }else if(ele.attachEvent){
+  //     ele.attachEvent('onsubmit', submitted);            //Old IE
+  // }
+  
+  // fullFormulaire.addEventListener("submit", function(e){
+  //   if(!isValid){
+  //       e.preventDefault();    //stop form from submitting
+  //   }
+  // });
+  //window load event
+  
+  // window.onunload
+  //on window unload, check if the sessionStorage is empty
+  // if it is empty, then delete the sessionStorage
