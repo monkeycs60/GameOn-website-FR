@@ -1,6 +1,6 @@
 @media screen and (max-width: 992px) {
 
-
+//on aligne les éléments de la navbar (menu + icône hamburger)
     .main-navbar {
         display: flex;
         width: 60%;
@@ -8,6 +8,7 @@
         align-items: center;
     }
 
+    //on rend les items de la navbar invisibles
     .menuList {
 
         a {
@@ -17,11 +18,13 @@
        
     }
 
+    //on rend visible l'icône hamburger
     #hamburgerI {
         font-size: 2em;
         display: block;
     }
 
+    //on réduit la taille de la font et la width de certains éléments
     .hero-content {
         width: 40%;
         h1 {
@@ -35,19 +38,20 @@ font-size: 1.2em;
         }
     }
 
+    //on change les dimensions de l'image de la banner
     .hero-img {
         max-height: 700px;
         background-size: cover;
     }
 
-    #confirm-modal {
-        
+    #confirm-modal {   
         height: 85vh;
     }
     .thanks-text {
         height: 85vh;
     }
 
+    //on décale le footer vers le bas
     footer {
         margin-top: 7vh;
     }

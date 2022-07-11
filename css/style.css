@@ -358,16 +358,13 @@ input {
     justify-content: space-between;
     align-items: center;
   }
-
   .menuList a {
     display: none;
   }
-
   #hamburgerI {
     font-size: 2em;
     display: block;
   }
-
   .hero-content {
     width: 40%;
   }
@@ -380,20 +377,16 @@ input {
   .hero-content button {
     width: 80%;
   }
-
   .hero-img {
     max-height: 700px;
     background-size: cover;
   }
-
   #confirm-modal {
     height: 85vh;
   }
-
   .thanks-text {
     height: 85vh;
   }
-
   footer {
     margin-top: 7vh;
   }
@@ -403,12 +396,10 @@ input {
     align-items: flex-start;
     padding: 1em;
   }
-
   .main-navbar {
     flex-direction: column-reverse;
     width: 100%;
   }
-
   .menuList {
     margin-top: 3vh;
     flex-direction: column;
@@ -447,13 +438,11 @@ input {
     justify-content: center;
     font-weight: normal;
   }
-
   #hamburgerI {
     width: 100%;
     text-align: end;
     font-size: 2.8em;
   }
-
   .hero-section {
     flex-direction: column;
     align-items: center;
@@ -462,7 +451,6 @@ input {
     background: white;
     margin-top: 0;
   }
-
   .hero-content {
     width: 100%;
     align-items: center;
@@ -480,18 +468,15 @@ input {
     transform: translateY(90vh);
     width: 50%;
   }
-
   .hero-img {
     width: 100%;
     background-size: cover;
     border-radius: 8px;
   }
-
   .bground,
 .bg2 {
     background: none;
   }
-
   .content {
     margin: 0px;
     margin-top: 15vh;
@@ -499,25 +484,20 @@ input {
     width: 100vw;
     border-radius: 8px 8px 0px 0px;
   }
-
   #validation {
     padding: 1vh 10vw;
   }
-
   #confirm-modal {
     border-radius: 8px 8px 0px 0px;
     max-width: 768px;
     height: 85vh;
   }
-
   .thanks-text {
     font-size: 3em;
   }
-
   .close-btn {
     width: 35%;
   }
-
   footer {
     transform: none;
     display: flex;
@@ -531,7 +511,6 @@ input {
   main {
     margin: 0 auto;
   }
-
   .hero-content {
     font-size: 90%;
   }
@@ -542,13 +521,11 @@ input {
     position: absolute;
     bottom: 80vh;
   }
-
   .hero-img {
     height: 330px;
     background-size: cover;
     margin-top: 3vh;
   }
-
   footer {
     transform: translate(0px, 8vh);
   }

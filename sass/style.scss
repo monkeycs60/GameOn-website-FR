@@ -1,18 +1,19 @@
 
-
+//Racine du projet 
 :root {
   --font-default: "DM Sans", Arial, Helvetica, sans-serif;
   --font-slab: var(--font-default);
   --modal-duration: 0.8s;
 }
 
+//reset css
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-//landing page
+//éléments de base
 
 body {
   font-family: DM Sans, Arial, Helvetica, sans-serif;
@@ -152,7 +153,7 @@ footer {
 
 //première fenêtre modale : inscription
 
-//calque transparent en fond
+//calque transparent en fond (sur les deux modales)
 .bground,
 .bg2 {
   display: none;
@@ -226,6 +227,7 @@ input {
   font-weight: normal;
 }
 
+//mise en page de toutes les checkbox et boutons
 .checkbox-label .checkbox-icon,
 .checkbox2-label .checkbox-icon {
   display: block;
@@ -350,6 +352,7 @@ input {
   position: relative;
 }
 
+//texte centré dans la modale de remerciement
 .thanks-text {
   display: flex;
   flex-direction: column;
@@ -360,6 +363,7 @@ input {
   height: 70vh;
 }
 
+//bouton qui ferme la modal 2
 .close-btn {
   position: absolute;
   top: 95%;
@@ -403,12 +407,8 @@ input {
  
 }
 
-//responsive
+//import responsive design
 
-
-
-
-//import tabletteresponsieve from './tabletteresponsieve.scss';
 @import "./responsive/tabletteResponsive.scss";
 @import "./responsive/mobileResponsive.scss";
 @import "./responsive/lowerResResponsive.scss";
