@@ -335,6 +335,6 @@ window.onload = function () {
       fullFormulaire.reset();
       sessionStorage.clear();
       
-    }, 1000);
+    }, 3000);
   }
 };
