@@ -328,7 +328,7 @@ function validateForm() {
 //if it is the case, it confirms that the form has been sent. 
 //so that is displays thanks modale and reset the form inputs and clear sessionStorage.
 window.onload = function () {
-  if (sessionStorage.length > 7) {
+  if (sessionStorage.length >= 7) {
     //set timeout to wait for the page to reload
     setTimeout(function () {
       launchModalConfirmation();
@@ -338,3 +338,5 @@ window.onload = function () {
     }, 3000);
   }
 };
+//log sessionStorage length$
+console.log(sessionStorage.length);
