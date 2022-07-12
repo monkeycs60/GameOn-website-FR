@@ -330,12 +330,11 @@ function validateForm() {
 window.onload = function () {
   if (sessionStorage.length >= 7) {
     //set timeout to wait for the page to reload
-    setTimeout(function () {
+    
       launchModalConfirmation();
       fullFormulaire.reset();
       sessionStorage.clear();
       
-    }, 3000);
   }
 };
 //log sessionStorage length$
