@@ -329,8 +329,12 @@ function validateForm() {
 //so that is displays thanks modale and reset the form inputs and clear sessionStorage.
 window.onload = function () {
   if (sessionStorage.length > 7) {
-    launchModalConfirmation();
-    fullFormulaire.reset();
-    sessionStorage.clear();
+    //set timeout to wait for the page to reload
+    setTimeout(function () {
+      launchModalConfirmation();
+      fullFormulaire.reset();
+      sessionStorage.clear();
+      
+    }, 1000);
   }
 };
